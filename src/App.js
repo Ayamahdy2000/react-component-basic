@@ -1,6 +1,8 @@
-import Expenses from "./components/Expenses"
+import Expenses from "./components/Expenses/Expenses"
+import ExpenseFrom from "./components/AddExpenses/ExpensesFrom";
 
 function App() {
+  //data
   let expenses = [
     {
       id: 'e1',
@@ -22,8 +24,13 @@ function App() {
       date: new Date(2021, 5, 12),
     },
   ];
+  //methods
+  const addNewExpense = (expenseData) => {
+    console.log("expenses",expenseData)
+  }
   return (
     <div>
+      <ExpenseFrom onSubmitExpense={addNewExpense} />
       <Expenses array={expenses} />
 
     </div>
