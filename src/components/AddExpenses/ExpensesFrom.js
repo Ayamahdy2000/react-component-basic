@@ -1,6 +1,6 @@
 import "./ExpensesFrom.scss"
 import { useState } from "react";
-import { propTypes } from "react-bootstrap/esm/Image";
+
 const ExpenseFrom = (props) => {
     //States
     const [title, setTitle] = useState('')

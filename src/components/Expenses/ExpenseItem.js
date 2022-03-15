@@ -5,10 +5,10 @@ import Card from "../UI/Card";
 
 function ExpenseItem(props) {
 
-  
+
     return (
         <div>
-    
+
             <Card className="expense-item" >
                 <div className="expense-item__date">
                     <ExpenseDate date={props.date} />
