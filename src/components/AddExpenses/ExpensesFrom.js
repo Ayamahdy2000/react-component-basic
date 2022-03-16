@@ -6,11 +6,8 @@ const ExpenseFrom = (props) => {
     const [title, setTitle] = useState('')
     const [amount, setAmount] = useState('')
     const [date, setDate] = useState('')
-    // const [userInput, setUserInput] = useState({
-    //     title: '',
-    //     amount: '',
-    //     date: ''
-    // })
+    const [showFrom, changeShowFrom] = useState(false)
+
     //Methods
     const changeTitleHandler = (event) => {
         setTitle(event.target.value)
@@ -28,29 +25,36 @@ const ExpenseFrom = (props) => {
     }
     const changeAmountHandler = (event) => {
         setAmount(event.target.value)
-        
+
     }
     const changeDateHandler = (event) => {
         setDate(event.target.value)
-      
+
     }
     const submitHandler = (e) => {
         e.preventDefault();
         const expenseData = {
-            title : title,
-            amount : amount,
-            date : new Date(date)
+            title: title,
+            amount: amount,
+            date: new Date(date)
         }
         props.onSubmitExpense(expenseData)
         setAmount('')
         setDate('')
         setTitle('')
-      
+
     }
+    const onShowFrom = () => {
+        changeShowFrom(true)
+    }
+    const onHideFrom = () => {
+        changeShowFrom(false)
+    }
+
     //JSX
     return <div className="new-expense">
-  
-            <form onSubmit={submitHandler}> 
+        {showFrom ?
+            <form onSubmit={submitHandler}>
                 <div className="new-expense__controls ">
                     <div className="new-expense__control">
                         <label>Title</label>
@@ -66,9 +70,10 @@ const ExpenseFrom = (props) => {
                     </div>
                 </div>
                 <div className="new-expense__actions ">
-                    <button type="submit">Add Expense</button>
+                    <button type="submit" onClick={onHideFrom}>Cancel</button>
+                    <button type="submit" onClick={onHideFrom}>Add Expense</button>
                 </div>
-            </form>
+            </form> : <button type="submit" onClick={onShowFrom}>Add New Expense</button>}
     </div>
 }
 export default ExpenseFrom;

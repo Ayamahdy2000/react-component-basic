@@ -31,13 +31,11 @@ function App() {
       return [{ ...expense, id: Math.random.toString }, ...preExpenses]
     });
   };
-  const FilterValue = (filter) => {
-    setExpenses(expenses.filter(expense => !filter || expense.date.getFullYear() == filter))
-}
+
   return (
     <div>
       <ExpenseFrom onSubmitExpense={addNewExpense} />
-      <Expenses items={expenses} getFilterValue={FilterValue}/>
+      <Expenses items={expenses} />
 
     </div>
   );

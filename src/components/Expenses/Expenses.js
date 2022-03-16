@@ -1,7 +1,8 @@
-import ExpenseItem from "./ExpenseItem"
+
 import { useState } from "react";
 import "./Expenses.scss"
 import ExpenseFilter from "./ExpenseFilter";
+import ExpenseContent from "./ExpenseContent";
 function Expense(props) {
     // const expense = []
     const [value, setValue] = useState('');
@@ -10,12 +11,12 @@ function Expense(props) {
         props.getFilterValue(filter)
     }
 
-    // for (const [index, value] of props.array.entries()) {
-    //     expense.push(<ExpenseItem key={index} title={value.title} date={value.date} amount={value.amount} />)
-    // }
+    const filterChange = props.items.filter(expense => value == '' || expense.date.getFullYear().toString() === value)
+
     return (<div className="expenses">
         <ExpenseFilter selected={value} onChangeFilter={onChangeFilter} />
-        {props.items.map((expense,index) => (<ExpenseItem key={index}   title={expense.title} date={expense.date} amount={expense.amount} />))}
+        <ExpenseContent items={filterChange} />
+       
 
     </div>)
 }

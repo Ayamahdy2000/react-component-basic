@@ -7,3 +7,22 @@
     border-radius: 12px;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
   }
+  .No-Data{
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+  }
+  .no-data{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .no-data__img{
+    max-width: 100%;
+  }
+  .no-data__text{
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+  }
