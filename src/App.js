@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Expenses from "./components/Expenses/Expenses"
 import ExpenseFrom from "./components/AddExpenses/ExpensesFrom";
+import Chart from "./components/charts/Chart";
+import ExpenseChart from "./components/Expenses/ExpenseChart";
 const DUMMY_DATA = [
   {
     id: 'e1',
@@ -25,6 +27,7 @@ const DUMMY_DATA = [
 function App() {
   const [expenses, setExpenses] = useState(DUMMY_DATA);
   // const [value, setValue] = useState('');
+  
   //methods
   const addNewExpense = (expense) => {
     setExpenses((preExpenses) => {
@@ -35,6 +38,7 @@ function App() {
   return (
     <div>
       <ExpenseFrom onSubmitExpense={addNewExpense} />
+
       <Expenses items={expenses} />
 
     </div>

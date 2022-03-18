@@ -35,9 +35,10 @@ const ExpenseFrom = (props) => {
         e.preventDefault();
         const expenseData = {
             title: title,
-            amount: amount,
+            amount: +amount,
             date: new Date(date)
         }
+        changeShowFrom(false)
         props.onSubmitExpense(expenseData)
         setAmount('')
         setDate('')
@@ -71,7 +72,7 @@ const ExpenseFrom = (props) => {
                 </div>
                 <div className="new-expense__actions ">
                     <button type="submit" onClick={onHideFrom}>Cancel</button>
-                    <button type="submit" onClick={onHideFrom}>Add Expense</button>
+                    <button type="submit" >Add Expense</button>
                 </div>
             </form> : <button type="submit" onClick={onShowFrom}>Add New Expense</button>}
     </div>
